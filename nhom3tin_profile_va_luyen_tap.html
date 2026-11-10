@@ -1,0 +1,1266 @@
+
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nhóm 3 Tin học</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fffdf5;
+    color: #333;
+}
+
+header {
+    background-color: #ffda55;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+header h1 {
+    margin: 0;
+    color: #493810;
+    font-size: 32px;
+}
+
+header p {
+    margin-bottom: 0;
+}
+
+nav {
+    background-color: #fff1b8;
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #eadb9c;
+}
+
+nav a {
+    color: #493810;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 15px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 25px 20px;
+}
+
+h2 {
+    color: #493810;
+    border-left: 5px solid #ffda55;
+    padding-left: 12px;
+    margin-bottom: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+    scroll-margin-top: 20px;
+}
+
+/* DANH SÁCH THÀNH VIÊN */
+
+.members {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.member {
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    background: white;
+    border: 1px solid #eadb9c;
+    border-radius: 12px;
+    padding: 18px 10px;
+    transition: 0.2s;
+}
+
+.member:hover {
+    background-color: #fff5ce;
+    transform: translateY(-3px);
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ffda55;
+    background: #fff1b8;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member h3 {
+    font-size: 15px;
+    margin: 0;
+}
+
+/* PROFILE THÀNH VIÊN */
+
+.profile {
+    display: none;
+    background: white;
+    border: 1px solid #eadb9c;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.profile h3 {
+    color: #493810;
+    margin-top: 0;
+}
+
+.back {
+    display: inline-block;
+    background: #fff1b8;
+    color: #493810;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+/* Chi hien profile khi nguoi dung bam vao thanh vien */
+.profile:target {
+    display: block;
+}
+
+#profiles > h2 {
+    display: none;
+}
+
+/* KHU VỰC TÀI LIỆU */
+
+.documents {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.document {
+    background: white;
+    border: 1px solid #eadb9c;
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.document h3 {
+    color: #493810;
+    margin-top: 0;
+}
+
+.document p {
+    color: #666;
+    font-size: 14px;
+}
+
+.document a {
+    display: inline-block;
+    background: #ffda55;
+    color: #493810;
+    text-decoration: none;
+    padding: 9px 13px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.document a:hover {
+    background: #f3c82f;
+}
+
+footer {
+    background: #fff1b8;
+    text-align: center;
+    padding: 18px;
+    color: #493810;
+}
+
+
+/* GIAO DIEN LUYEN TAP - VAN DUNG */
+#documents {
+    scroll-margin-top: 24px;
+}
+
+#documents > h2 {
+    margin-bottom: 10px;
+}
+
+#documents > h2::after {
+    content: "Chọn từng bài, sau đó bấm vào Luyện tập hoặc Vận dụng để xem nội dung.";
+    display: block;
+    border: 0;
+    color: #7a6a42;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 10px 0 0;
+    padding: 0;
+}
+
+.documents {
+    align-items: start;
+    gap: 20px;
+}
+
+.document {
+    min-width: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7d38b;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(105, 79, 15, 0.06);
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.document:hover {
+    box-shadow: 0 6px 16px rgba(105, 79, 15, 0.12);
+    transform: translateY(-2px);
+}
+
+.document > h3 {
+    margin: 0;
+    padding: 17px 18px;
+    min-height: 68px;
+    display: flex;
+    align-items: center;
+    background: #fff1b8;
+    color: #493810;
+    font-size: 17px;
+    line-height: 1.45;
+    border-bottom: 1px solid #eadb9c;
+}
+
+.document details {
+    margin: 12px 14px;
+    border: 1px solid #eadb9c;
+    border-radius: 10px;
+    background: #fffefa;
+    overflow: hidden;
+}
+
+.document details:last-child {
+    margin-bottom: 15px;
+}
+
+.document summary {
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    padding: 13px 42px 13px 15px;
+    background: #fff8df;
+    color: #594313;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s;
+    user-select: none;
+}
+
+.document summary::-webkit-details-marker {
+    display: none;
+}
+
+.document summary::after {
+    content: "+";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 23px;
+    height: 23px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #ffda55;
+    color: #493810;
+    font-size: 19px;
+    line-height: 1;
+}
+
+.document details[open] > summary {
+    background: #ffda55;
+    color: #493810;
+    border-bottom: 1px solid #e6c13b;
+}
+
+.document details[open] > summary::after {
+    content: "−";
+    background: #fffdf5;
+}
+
+.document summary:hover {
+    background: #ffedaa;
+}
+
+.document summary:focus-visible {
+    outline: 3px solid #9a7414;
+    outline-offset: -3px;
+}
+
+.document details > .question,
+.document details > p,
+.document details > ul,
+.document details > ol,
+.document details > pre {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.document details > .question {
+    padding: 13px 0 5px;
+}
+
+.document .question p {
+    color: #444;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 8px 0 12px;
+}
+
+.document .question strong {
+    color: #493810;
+}
+
+.document .question ul,
+.document .question ol,
+.document details ul,
+.document details ol {
+    padding-left: 23px;
+    line-height: 1.75;
+    font-size: 14px;
+}
+
+.document hr {
+    border: 0;
+    border-top: 1px dashed #e5d49b;
+    margin: 15px 16px;
+}
+
+.document pre.network {
+    max-width: calc(100% - 32px);
+    overflow-x: auto;
+    white-space: pre;
+    padding: 14px;
+    border-radius: 8px;
+    background: #fff8e5;
+    border: 1px solid #eee0b6;
+    color: #493810;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.document code {
+    overflow-wrap: anywhere;
+    color: #76540b;
+}
+
+.document details a {
+    color: #76540b;
+    font-weight: bold;
+    text-decoration: underline;
+    background: transparent;
+    padding: 0;
+}
+
+.document details a:hover {
+    background: transparent;
+    color: #a16e00;
+}
+
+.document details p:last-child {
+    margin-bottom: 16px;
+}
+
+@media (max-width: 700px) {
+    .document > h3 {
+        min-height: auto;
+        font-size: 16px;
+    }
+
+    .document details {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .document .question p,
+    .document .question ul,
+    .document .question ol {
+        font-size: 13.5px;
+    }
+}
+
+@media (max-width: 700px) {
+    .members {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .documents {
+        grid-template-columns: 1fr;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 6px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header id="home">
+    <h1>NHÓM 3 TIN HỌC</h1>
+    <p> Chào mừng các bạn đến trang web của nhóm 3 CƯNG CƯNG </p>
+</header>
+
+<nav>
+    <a href="#home">Trang chủ</a>
+    <a href="#members">Thành viên</a>
+    <a href="#documents"> Luyện tập & Vận dụng</a>
+</nav>
+
+<main>
+
+<!-- THÀNH VIÊN -->
+
+<section id="members">
+    <h2>Thành viên nhóm</h2>
+
+    <div class="members">
+
+        <a class="member" href="#mai">
+            <div class="avatar">
+                <img src="images/mai.jpg" alt="Trần Thị Xuân Mai">
+            </div>
+            <h3>Trần Thị Xuân Mai</h3>
+        </a>
+
+        <a class="member" href="#tu">
+            <div class="avatar">
+                <img src="images/tu.jpg" alt="Nguyễn Hoàng Anh Tú">
+            </div>
+            <h3>Nguyễn Hoàng Anh Tú</h3>
+        </a>
+
+        <a class="member" href="#hung">
+            <div class="avatar">
+                <img src="images/hung.jpg" alt="Đoàn Chấn Hưng">
+            </div>
+            <h3>Đoàn Chấn Hưng</h3>
+        </a>
+
+        <a class="member" href="#khoa">
+            <div class="avatar">
+                <img src="images/khoa.jpg" alt="Lê Anh Khoa">
+            </div>
+            <h3>Lê Anh Khoa</h3>
+        </a>
+
+    </div>
+</section>
+
+<!-- PROFILE RIÊNG CỦA TỪNG THÀNH VIÊN -->
+
+
+<section id="profiles">
+    <h2>Profile thành viên</h2>
+
+   <div class="profile" id="mai">
+    <h3>Trần Thị Xuân Mai</h3>
+    <p><strong>Ngày sinh:</strong> 20/06/2009</p>
+    <p><strong>Giới tính:</strong> Nữ</p>
+    <p><strong>Sở thích:</strong> Lắp ráp LEGO, nghe nhạc</p>
+    <a class="back" href="#members">Quay lại</a>
+</div>
+
+    <div class="profile" id="tu">
+        <h3>Nguyễn Hoàng Anh Tú</h3>
+        <p><strong>Ngày sinh:</strong> 05/12/2009</p>
+        <p><strong>Giới tính:</strong> Nam</p>
+        <p><strong>Sở thích:</strong> Đọc sách</p>
+        <a class="back" href="#members">Quay lại</a>
+    </div>
+
+    <div class="profile" id="hung">
+        <h3>Đoàn Chấn Hưng</h3>
+        <p><strong>Ngày sinh:</strong> 17/12/2009</p>
+        <p><strong>Giới tính:</strong> Nam</p>
+        <p><strong>Tình trạng:</strong> Độc thân</p>
+        <p><strong>Sở thích:</strong> Xem phim ấm áp</p>
+        <a class="back" href="#members">Quay lại</a>
+    </div>
+
+    <div class="profile" id="khoa">
+        <h3>Lê Anh Khoa</h3>
+        <p><strong>Ngày sinh:</strong> 06/04/2009</p>
+        <p><strong>Giới tính:</strong> Nam</p>
+        <p><strong>Nơi sinh:</strong> TP. Hồ Chí Minh</p>
+        <p><strong>Sở thích:</strong> Chơi bida</p>
+        <a class="back" href="#members">Quay lại</a>
+    </div>
+</section>
+
+<section id="documents">
+    <h2>Luyện tập và vận dụng</h2>
+
+    <div class="documents">
+
+     
+<!-- BÀI 3 -->
+<div class="document">
+    <h3>Bài 3: Một số thiết bị mạng thông dụng</h3>
+
+    <details>
+        <summary>Luyện tập</summary>
+
+        <div class="question">
+            <p><strong>LT1: Muốn kết nối các máy tính trong phạm vi gia đình thành một mạng, nên dùng loại thiết bị kết nối nào?</strong></p>
+
+            <p><strong>Trả lời:</strong> Có thể sử dụng các thiết bị sau:</p>
+
+            <ul>
+                <li><strong>Router Wi-Fi:</strong> Cho phép các thiết bị kết nối với nhau qua Wi-Fi và có thể kết nối Internet.</li>
+                <li><strong>Switch Ethernet:</strong> Kết nối nhiều máy tính và thiết bị có dây trong cùng mạng.</li>
+                <li><strong>Bộ kết nối Powerline:</strong> Truyền dữ liệu qua hệ thống dây điện trong nhà để mở rộng kết nối mạng.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="question">
+            <p><strong>LT2: Máy tính xách tay có Wi-Fi nhưng không có SIM. Làm thế nào để kết nối Internet thông qua mạng điện thoại di động?</strong></p>
+
+            <p><strong>Trả lời:</strong> Có thể sử dụng các cách sau:</p>
+
+            <ul>
+                <li><strong>Phát Wi-Fi từ điện thoại:</strong> Bật tính năng điểm truy cập cá nhân trên điện thoại rồi kết nối laptop với Wi-Fi đó.</li>
+                <li><strong>Chia sẻ Internet qua USB:</strong> Kết nối điện thoại với laptop bằng cáp USB và bật chia sẻ kết nối USB nếu thiết bị hỗ trợ.</li>
+                <li><strong>Sử dụng router di động 3G/4G/5G:</strong> Lắp SIM có dữ liệu di động vào thiết bị, sau đó kết nối laptop với mạng Wi-Fi do router phát ra.</li>
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary>Vận dụng</summary>
+
+        <div class="question">
+            <p><strong>VD1: Tìm hiểu cách mạng máy tính của trường sử dụng hub, switch, WAP và router. Vẽ lại sơ đồ mạng của trường.</strong></p>
+
+            <p><strong>Tham khảo:</strong> Một mạng trường học có thể được tổ chức như sau. Sơ đồ thực tế cần được điều chỉnh theo hệ thống mạng của trường em.</p>
+
+            <pre class="network">
+              [Internet]
+                  |
+               [Router]
+                  |
+               [Switch]
+              /    |     \
+          [Máy tính] [Máy in] [WAP]
+                                |
+                         [Thiết bị Wi-Fi]
+            </pre>
+
+            <ul>
+                <li><strong>Router:</strong> Kết nối mạng nội bộ với Internet và định tuyến dữ liệu.</li>
+                <li><strong>Switch:</strong> Kết nối các máy tính, máy in và thiết bị mạng có dây.</li>
+                <li><strong>WAP:</strong> Cung cấp kết nối Wi-Fi cho laptop, điện thoại và máy tính bảng.</li>
+                <li><strong>Hub:</strong> Nếu còn được sử dụng, hub kết nối các thiết bị trong mạng LAN nhưng gửi dữ liệu đến tất cả các cổng.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="question">
+            <p><strong>VD2: Trên các xe khách đường dài, hành khách có thể truy cập Internet thông qua Wi-Fi không? Điều này được thực hiện như thế nào?</strong></p>
+
+            <p><strong>Trả lời:</strong> Có. Nhiều xe khách đường dài cung cấp Wi-Fi cho hành khách thông qua hệ thống mạng di động.</p>
+
+            <ul>
+                <li><strong>Modem hoặc router di động:</strong> Sử dụng SIM 3G/4G/5G để kết nối Internet qua mạng di động.</li>
+                <li><strong>Anten:</strong> Hỗ trợ thu tín hiệu mạng di động; một số hệ thống sử dụng anten ngoài để cải thiện khả năng thu sóng.</li>
+                <li><strong>Router Wi-Fi:</strong> Phát mạng Wi-Fi trong xe để hành khách kết nối bằng điện thoại, máy tính bảng hoặc laptop.</li>
+            </ul>
+
+            <p>Chất lượng kết nối phụ thuộc vào vùng phủ sóng di động, số lượng người dùng và thiết bị được trang bị trên xe.</p>
+        </div>
+    </details>
+</div>
+
+
+       
+<!-- BÀI 4 -->
+<div class="document">
+    <h3>Bài 4: Giao thức mạng</h3>
+
+    <details>
+        <summary>Luyện tập</summary>
+
+        <div class="question">
+            <p><strong>LT1: Hãy quan sát việc gọi điện thoại bằng máy bàn. Kể ra các quy tắc để làm rõ giao thức gọi điện thoại.</strong></p>
+
+            <p><strong>Trả lời:</strong> Quá trình gọi điện thoại tuân theo một trình tự và quy tắc nhất định:</p>
+
+            <ol>
+                <li><strong>Nhấc ống nghe:</strong> Hệ thống nhận biết người dùng muốn thực hiện cuộc gọi.</li>
+                <li><strong>Quay số:</strong> Người gọi nhập số điện thoại của người nhận.</li>
+                <li><strong>Xử lí cuộc gọi:</strong> Hệ thống xác định số đích và chuyển cuộc gọi đến người nhận.</li>
+                <li><strong>Phát tín hiệu:</strong> Người gọi nghe tín hiệu chờ hoặc thông báo bận, lỗi; điện thoại người nhận đổ chuông.</li>
+                <li><strong>Kết nối và nói chuyện:</strong> Khi người nhận nhấc máy, hai bên có thể trao đổi thông tin.</li>
+                <li><strong>Kết thúc cuộc gọi:</strong> Một bên đặt ống nghe xuống, hệ thống ngắt kết nối.</li>
+            </ol>
+
+            <p><strong>Kết luận:</strong> Giao thức là tập hợp các quy tắc quy định cách các bên trao đổi thông tin, bao gồm trình tự hành động và cách xử lí các tình huống.</p>
+        </div>
+
+        <hr>
+
+        <div class="question">
+            <p><strong>LT2: Xác định địa chỉ IP tương ứng ở dạng thập phân và nhị phân.</strong></p>
+
+            <p><strong>a) Chuyển nhị phân sang thập phân</strong></p>
+
+            <p>Địa chỉ IP nhị phân:</p>
+            <pre class="network">11000000 10101000 00001101 11010010</pre>
+
+            <p>Chuyển từng nhóm 8 bit sang thập phân:</p>
+            <ul>
+                <li>11000000 = 192</li>
+                <li>10101000 = 168</li>
+                <li>00001101 = 13</li>
+                <li>11010010 = 210</li>
+            </ul>
+
+            <p><strong>Kết quả:</strong> 192.168.13.210</p>
+
+            <p><strong>b) Chuyển thập phân sang nhị phân</strong></p>
+
+            <p>Địa chỉ IP thập phân: 131.214.23.16</p>
+
+            <ul>
+                <li>131 = 10000011</li>
+                <li>214 = 11010110</li>
+                <li>23 = 00010111</li>
+                <li>16 = 00010000</li>
+            </ul>
+
+            <p><strong>Kết quả:</strong></p>
+            <pre class="network">10000011 11010110 00010111 00010000</pre>
+        </div>
+    </details>
+
+    <details>
+        <summary>Vận dụng</summary>
+
+        <div class="question">
+            <p><strong>VD1: Tìm hiểu lệnh ping và thử nghiệm sử dụng lệnh này.</strong></p>
+
+            <p><strong>Trả lời:</strong> Ping là công cụ giúp kiểm tra khả năng kết nối giữa máy tính của em với một thiết bị hoặc máy chủ trên mạng. Công cụ thường sử dụng các gói tin ICMP Echo Request và nhận phản hồi ICMP Echo Reply.</p>
+
+            <p><strong>Cách thực hiện trên Windows:</strong></p>
+
+            <ol>
+                <li>Nhấn tổ hợp phím Windows + R.</li>
+                <li>Nhập <code>cmd</code> rồi nhấn Enter.</li>
+                <li>Nhập lệnh sau:</li>
+            </ol>
+
+            <pre class="network">ping www.google.com</pre>
+
+            <p><strong>Cách đọc kết quả:</strong></p>
+
+            <ul>
+                <li>Nếu nhận được phản hồi, máy tính có thể liên lạc với địa chỉ đích qua mạng.</li>
+                <li>Nếu xuất hiện thông báo hết thời gian chờ, gói tin có thể không nhận được phản hồi.</li>
+                <li>Thời gian phản hồi thường được tính bằng mili giây (ms); thời gian thấp thường cho thấy độ trễ nhỏ hơn.</li>
+            </ul>
+
+            <p><strong>Lưu ý:</strong> Không nhận được phản hồi ping chưa chắc là mất kết nối Internet, vì một số máy chủ hoặc tường lửa chặn ICMP.</p>
+        </div>
+    </details>
+</div>
+
+
+       
+<!-- BÀI 7 -->
+<div class="document">
+    <h3>Bài 7: HTML và cấu trúc trang web</h3>
+
+    <details>
+        <summary>Luyện tập</summary>
+
+        <div class="question">
+            <p><strong>LT1: Tìm ví dụ về phần tử HTML không thể lồng, tức là không thể có quan hệ cha – con trong cây thông tin của trang web.</strong></p>
+
+            <p><strong>Trả lời:</strong> Phần tử HTML thường được xác định bởi thẻ bắt đầu, thẻ kết thúc và nội dung nằm giữa hai thẻ. Quan hệ cha – con trong cây thông tin được thể hiện thông qua việc lồng các phần tử HTML vào nhau.</p>
+
+            <p>Ví dụ: <code>&lt;head&gt;</code> và <code>&lt;body&gt;</code> không thể lồng bên trong nhau vì chúng là hai phần tử riêng biệt, cùng nằm trong phần tử <code>&lt;html&gt;</code>.</p>
+
+            <ul>
+                <li><code>&lt;head&gt;</code>: Chứa thông tin về trang web như tiêu đề, bảng mã và các thông tin thiết lập khác.</li>
+                <li><code>&lt;body&gt;</code>: Chứa nội dung hiển thị trên trang web.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="question">
+            <p><strong>LT2: Soạn một tệp HTML để hiển thị một đoạn văn bản đơn giản và vẽ cây thông tin các phần tử HTML của trang web vừa soạn thảo.</strong></p>
+
+            <p><strong>Ví dụ:</strong> Trang web hiển thị câu ca dao về hoa sen.</p>
+
+            <pre class="network"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="vi"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Văn bản về sen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p&gt;Trong đầm gì đẹp bằng sen,
+    Lá xanh bông trắng lại chen nhị vàng.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <p><strong>Cây thông tin các phần tử HTML:</strong></p>
+
+            <pre class="network">html
+├── head
+│   ├── meta
+│   ├── meta
+│   └── title
+└── body
+    └── p</pre>
+
+            <p><em>Lưu ý:</em> <code>&lt;!DOCTYPE html&gt;</code> là khai báo kiểu tài liệu, không phải phần tử HTML trong cây thông tin.</p>
+        </div>
+    </details>
+
+    <details>
+        <summary>Vận dụng</summary>
+
+        <div class="question">
+            <p><strong>VD1: Tìm trên mạng các trang web hỗ trợ soạn thảo HTML trực tuyến.</strong></p>
+
+            <p><strong>Trả lời:</strong> Một số trang web hỗ trợ soạn thảo và chạy thử mã HTML trực tuyến gồm:</p>
+
+            <ul>
+                <li><a href="https://jsfiddle.net/" target="_blank" rel="noopener noreferrer">JSFiddle</a>: Cho phép viết và thử nghiệm HTML, CSS, JavaScript.</li>
+                <li><a href="https://codepen.io/" target="_blank" rel="noopener noreferrer">CodePen</a>: Hỗ trợ tạo và xem trước sản phẩm web trực tiếp.</li>
+                <li><a href="https://jsbin.com/" target="_blank" rel="noopener noreferrer">JS Bin</a>: Cho phép viết và kiểm tra mã web trực tuyến.</li>
+                <li><a href="https://replit.com/" target="_blank" rel="noopener noreferrer">Replit</a>: Môi trường lập trình trực tuyến hỗ trợ nhiều ngôn ngữ, bao gồm HTML.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="question">
+            <p><strong>VD2: Sử dụng phần mềm soạn thảo HTML để tạo trang web có nội dung về lịch sử phát triển HTML và chèn hình ảnh minh họa.</strong></p>
+
+            <p><strong>Mã HTML tham khảo:</strong></p>
+
+            <pre class="network"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="vi"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Lịch sử phát triển HTML&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Lịch sử phát triển HTML&lt;/h1&gt;
+
+    &lt;p&gt;Các chuẩn HTML được Tim Berners-Lee
+    đề xuất vào đầu những năm 1990 tại CERN.&lt;/p&gt;
+
+    &lt;p&gt;Ý tưởng ban đầu là xây dựng một chuẩn chung
+    để chia sẻ các tài liệu giữa các nhà nghiên cứu.&lt;/p&gt;
+
+    &lt;p&gt;Sơ đồ dưới đây minh họa ý tưởng siêu văn bản
+    (hypertext) của Tim Berners-Lee.&lt;/p&gt;
+
+    &lt;img src="hinh-anh.jpg"
+         alt="Sơ đồ Hypertext"
+         style="max-width: 100%; height: auto;"&gt;
+
+    &lt;p&gt;Phiên bản HTML đầu tiên được giới thiệu
+    vào năm 1991. HTML tiếp tục phát triển cùng
+    với sự phát triển của Internet.&lt;/p&gt;
+
+    &lt;p&gt;HTML5 trở thành khuyến nghị chính thức
+    của W3C vào năm 2014.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <p><strong>Giải thích:</strong></p>
+            <ul>
+                <li><code>&lt;h1&gt;</code>: Tạo tiêu đề chính của trang web.</li>
+                <li><code>&lt;p&gt;</code>: Tạo các đoạn văn bản.</li>
+                <li><code>&lt;img&gt;</code>: Chèn hình ảnh vào trang web.</li>
+                <li><code>src</code>: Xác định đường dẫn đến tệp hình ảnh.</li>
+                <li><code>alt</code>: Cung cấp văn bản thay thế nếu hình ảnh không hiển thị.</li>
+            </ul>
+
+            <p><strong>Lưu ý:</strong> Thay <code>hinh-anh.jpg</code> bằng tên hoặc đường dẫn thực tế của ảnh. Nếu ảnh nằm cùng thư mục với tệp HTML thì chỉ cần ghi tên tệp ảnh.</p>
+        </div>
+    </details>
+</div>
+
+        
+<!-- BÀI 8 -->
+<div class="document">
+    <h3>Bài 8: Định dạng văn bản</h3>
+
+    <details>
+        <summary>Luyện tập</summary>
+
+        <div class="question">
+            <p><strong>LT1: Sửa lại phần tử HTML sau để làm nổi bật ý chính của câu.</strong></p>
+
+            <p><strong>Đề bài:</strong> Thẻ strong và thẻ em được sử dụng để nhấn mạnh vào nội dung trong phần tử. Thẻ B chỉ có tác dụng in đậm văn bản.</p>
+
+            <p><strong>Lời giải:</strong></p>
+
+            <pre class="network"><code>&lt;p&gt;
+    &lt;strong&gt;Thẻ strong&lt;/strong&gt; và
+    &lt;em&gt;thẻ em&lt;/em&gt; được sử dụng để nhấn mạnh
+    vào nội dung trong phần tử.
+    Thẻ &lt;strong&gt;B&lt;/strong&gt; chỉ có tác dụng
+    in đậm văn bản.
+&lt;/p&gt;</code></pre>
+
+            <p><strong>Giải thích:</strong></p>
+            <ul>
+                <li><code>&lt;strong&gt;</code>: Làm nổi bật nội dung quan trọng, thường hiển thị chữ đậm.</li>
+                <li><code>&lt;em&gt;</code>: Nhấn mạnh nội dung, thường hiển thị chữ nghiêng.</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="question">
+            <p><strong>LT2: Trình bày đoạn văn bản sau bằng mã HTML.</strong></p>
+
+            <p><strong>Mã HTML tham khảo:</strong></p>
+
+            <pre class="network"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="vi"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;INTERNET TỐC ĐỘ CAO&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;INTERNET TỐC ĐỘ CAO&lt;/h1&gt;
+
+    &lt;p&gt;
+        &lt;em&gt;Dịch vụ Internet tốc độ cao là dịch vụ
+        internet cáp quang chất lượng cao, ổn định,
+        giá cả hợp lí.&lt;/em&gt;
+    &lt;/p&gt;
+
+    &lt;h2&gt;Các tính năng nổi bật:&lt;/h2&gt;
+
+    &lt;ul&gt;
+        &lt;li&gt;Tốc độ siêu cao từ 150 MBps trở lên&lt;/li&gt;
+        &lt;li&gt;Lắp đặt nhanh chóng trong 24h&lt;/li&gt;
+        &lt;li&gt;Phù hợp với cá nhân/Hộ gia đình&lt;/li&gt;
+        &lt;li&gt;Tặng modem 2 băng tần&lt;/li&gt;
+        &lt;li&gt;Miễn phí lắp đặt, hỗ trợ 24/7&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <p><strong>Các thẻ được sử dụng:</strong></p>
+            <ul>
+                <li><code>&lt;h1&gt;</code>: Tiêu đề chính.</li>
+                <li><code>&lt;h2&gt;</code>: Tiêu đề phụ.</li>
+                <li><code>&lt;p&gt;</code>: Đoạn văn bản.</li>
+                <li><code>&lt;em&gt;</code>: Nhấn mạnh văn bản bằng chữ nghiêng.</li>
+                <li><code>&lt;ul&gt;</code> và <code>&lt;li&gt;</code>: Tạo danh sách không có thứ tự.</li>
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary>Vận dụng</summary>
+
+        <div class="question">
+            <p><strong>VD1: Hãy chỉ ra các bước cần thực hiện để sử dụng một màu cụ thể trong bức ảnh làm màu cho tiêu đề một bài thơ.</strong></p>
+
+            <p><strong>Các bước thực hiện:</strong></p>
+            <ol>
+                <li>Chọn bức ảnh có màu sắc muốn sử dụng cho tiêu đề.</li>
+                <li>Dùng công cụ lấy mẫu màu (Eyedropper) trong phần mềm thiết kế để lấy mã màu từ ảnh.</li>
+                <li>Tạo tiêu đề bài thơ bằng thẻ HTML như <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code> hoặc <code>&lt;h3&gt;</code>.</li>
+                <li>Sử dụng thuộc tính CSS <code>color</code> để áp dụng màu đã chọn cho tiêu đề.</li>
+            </ol>
+
+            <p><strong>Ví dụ:</strong></p>
+
+            <pre class="network"><code>&lt;h1 style="color: #b8860b;"&gt;
+    Mùa sen
+&lt;/h1&gt;</code></pre>
+
+            <p>Trong ví dụ trên, <code>#b8860b</code> là mã màu vàng đậm. Có thể thay bằng mã màu lấy từ bức ảnh.</p>
+
+            <p><strong>Lưu ý:</strong> Thuộc tính <code>color</code> dùng để đổi màu chữ; nếu muốn dùng ảnh làm nền thì dùng thuộc tính <code>background-image</code>.</p>
+        </div>
+
+        <hr>
+
+        <div class="question">
+            <p><strong>VD2: Hãy đưa ra các định dạng một đoạn văn bản để có chữ thường, chữ in đậm và các cỡ chữ khác nhau.</strong></p>
+
+            <p><strong>Các cách định dạng:</strong></p>
+            <ul>
+                <li>Định dạng chữ đậm bằng thẻ <code>&lt;strong&gt;</code> hoặc <code>&lt;b&gt;</code>.</li>
+                <li>Định dạng chữ thường bằng văn bản thông thường hoặc thẻ <code>&lt;p&gt;</code>.</li>
+                <li>Thay đổi cỡ chữ bằng thuộc tính CSS <code>font-size</code>.</li>
+            </ul>
+
+            <p><strong>Ví dụ:</strong></p>
+
+            <pre class="network"><code>&lt;p style="font-size: 16px;"&gt;
+    Đây là đoạn văn bản cỡ bình thường.
+&lt;/p&gt;
+
+&lt;p style="font-size: 20px;"&gt;
+    Đây là đoạn văn bản cỡ lớn hơn.
+&lt;/p&gt;
+
+&lt;p&gt;
+    Đây là chữ thường và
+    &lt;strong&gt;đây là chữ in đậm.&lt;/strong&gt;
+&lt;/p&gt;</code></pre>
+
+            <p><strong>Kết quả:</strong> Đoạn văn bản có thể kết hợp chữ thường, chữ đậm và nhiều cỡ chữ để làm nổi bật nội dung quan trọng.</p>
+        </div>
+    </details>
+</div>
+
+        
+<!-- BÀI 9 -->
+<div class="document">
+    <h3>Bài 9: Tạo danh sách, bảng</h3>
+
+    <details>
+        <summary>Luyện tập</summary>
+
+        <div class="question">
+            <p><strong>LT: Sửa lại chương trình trong Hình 9.5a, sử dụng thuộc tính style thay vì thuộc tính border để tạo viền cho bảng. Sử dụng màu xanh cho viền của các ô ở hai dòng đầu bảng và sử dụng ba màu đỏ, vàng, xanh cho ba chữ Toán, Vật lí và Hóa học.</strong></p>
+
+            <p><strong>Lời giải:</strong></p>
+
+            <pre class="network"><code>&lt;table style="border-collapse: collapse;"&gt;
+    &lt;tr&gt;
+        &lt;th style="border: 2px solid blue;"&gt;Họ tên&lt;/th&gt;
+        &lt;th colspan="3"
+            style="border: 2px solid blue;"&gt;
+            Điểm thi
+        &lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td style="border: 2px solid blue;"&gt;&lt;/td&gt;
+        &lt;td style="border: 2px solid red;"&gt;Toán&lt;/td&gt;
+        &lt;td style="border: 2px solid yellow;"&gt;Vật lí&lt;/td&gt;
+        &lt;td style="border: 2px solid green;"&gt;Hóa học&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <p><strong>Giải thích:</strong></p>
+            <ul>
+                <li><code>style</code>: Dùng để thiết lập kiểu hiển thị cho phần tử HTML.</li>
+                <li><code>border: 2px solid blue;</code>: Tạo viền xanh dày 2px.</li>
+                <li><code>colspan="3"</code>: Cho ô “Điểm thi” gộp ba cột.</li>
+                <li><code>border-collapse: collapse;</code>: Gộp các đường viền liền kề thành một đường.</li>
+            </ul>
+        </div>
+    </details>
+
+    <details>
+        <summary>Vận dụng</summary>
+
+        <div class="question">
+            <p><strong>VD: Cho trước một bảng dữ liệu cỡ n × 4, mỗi hàng tương ứng với một bộ (họ tên, điểm Toán, điểm Vật lí, điểm Hóa học). Viết chương trình Python để tạo tệp HTML vẽ bảng và bổ sung dữ liệu vào các hàng phía dưới.</strong></p>
+
+            <p><strong>Chương trình Python:</strong></p>
+
+            <pre class="network"><code>def generate_html_table(data):
+    html_content = """&lt;!DOCTYPE html&gt;
+&lt;html lang="vi"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Bảng điểm&lt;/title&gt;
+    &lt;style&gt;
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid blue;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #fff2b2;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Bảng điểm học sinh&lt;/h1&gt;
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Họ tên&lt;/th&gt;
+            &lt;th&gt;Điểm Toán&lt;/th&gt;
+            &lt;th&gt;Điểm Vật lí&lt;/th&gt;
+            &lt;th&gt;Điểm Hóa học&lt;/th&gt;
+        &lt;/tr&gt;
+"""
+
+    # Thêm dữ liệu vào các hàng của bảng
+    for row in data:
+        html_content += "        &lt;tr&gt;\\n"
+        for value in row:
+            html_content += f"            &lt;td&gt;{value}&lt;/td&gt;\\n"
+        html_content += "        &lt;/tr&gt;\\n"
+
+    html_content += """    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;"""
+
+    return html_content
+
+
+# Dữ liệu ban đầu
+initial_data = [
+    ["Nguyễn Văn A", "8.5", "7.0", "9.0"],
+    ["Trần Thị B", "7.0", "8.0", "8.5"]
+]
+
+# Dữ liệu mới cần bổ sung
+new_data = [
+    ["Lê Quang C", "6.5", "7.5", "8.0"],
+    ["Phạm Thị D", "9.0", "8.5", "7.5"]
+]
+
+# Kết hợp dữ liệu cũ và mới
+combined_data = initial_data + new_data
+
+# Tạo nội dung HTML
+html_content = generate_html_table(combined_data)
+
+# Lưu nội dung vào tệp HTML
+with open("data_table.html", "w", encoding="utf-8") as file:
+    file.write(html_content)
+
+print("Tạo tệp HTML thành công!")</code></pre>
+
+            <p><strong>Giải thích:</strong></p>
+            <ul>
+                <li>Hàm <code>generate_html_table(data)</code> tạo mã HTML cho bảng.</li>
+                <li>Vòng lặp <code>for row in data</code> duyệt qua từng học sinh.</li>
+                <li>Vòng lặp <code>for value in row</code> tạo từng ô dữ liệu.</li>
+                <li><code>initial_data + new_data</code> kết hợp dữ liệu ban đầu với dữ liệu bổ sung.</li>
+                <li>Hàm <code>open()</code> ghi nội dung vào tệp <code>data_table.html</code>.</li>
+            </ul>
+
+            <p><strong>Kết quả:</strong> Sau khi chạy chương trình Python, tệp <code>data_table.html</code> được tạo. Mở tệp bằng trình duyệt để xem bảng điểm của bốn học sinh.</p>
+        </div>
+    </details>
+</div>
+
+<!-- BÀI 10 -->
+<div class="document">
+    <h3>Bài 10: Tạo liên kết</h3>
+
+    <details>
+        <summary>Luyện tập 1</summary>
+        <p><strong>Yêu cầu:</strong> Viết đoạn mã tạo liên kết quay về trang chủ CLB.html trong trang thong_tin.html.</p>
+
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="vi"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Thông tin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;a href="CLB.html"&gt;Quay về trang chủ&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </details>
+
+    <details>
+        <summary>Luyện tập 2</summary>
+        <p><strong>Yêu cầu:</strong> Tạo trang giới thiệu bản thân, trong đó có ít nhất 3 liên kết Facebook của các bạn cùng lớp.</p>
+
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="vi"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Giới thiệu bản thân&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Giới thiệu bản thân&lt;/h1&gt;
+    &lt;p&gt;Xin chào! Mình là Mai.&lt;/p&gt;
+
+    &lt;h2&gt;Bạn bè của mình&lt;/h2&gt;
+    &lt;a href="https://www.facebook.com/friend1"&gt;Bạn 1&lt;/a&gt;&lt;br&gt;
+    &lt;a href="https://www.facebook.com/friend2"&gt;Bạn 2&lt;/a&gt;&lt;br&gt;
+    &lt;a href="https://www.facebook.com/friend3"&gt;Bạn 3&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </details>
+
+    <details>
+        <summary>Vận dụng</summary>
+        <p><strong>Yêu cầu:</strong> Tạo trang web giới thiệu lịch sinh hoạt của các câu lạc bộ thể thao, sử dụng liên kết đến từng câu lạc bộ.</p>
+
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="vi"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Câu lạc bộ thể thao&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;CÂU LẠC BỘ THỂ THAO&lt;/h1&gt;
+
+    &lt;h2&gt;Lịch sinh hoạt&lt;/h2&gt;
+    &lt;table border="1"&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Câu lạc bộ&lt;/th&gt;
+            &lt;th&gt;Thời gian&lt;/th&gt;
+            &lt;th&gt;Địa điểm&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;a href="#club1"&gt;Bóng đá&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;Thứ 2, 4, 6&lt;/td&gt;
+            &lt;td&gt;Sân trường&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;a href="#club2"&gt;Cầu lông&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;Thứ 3, 5, 7&lt;/td&gt;
+            &lt;td&gt;Nhà đa năng&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+
+    &lt;h2 id="club1"&gt;Câu lạc bộ Bóng đá&lt;/h2&gt;
+    &lt;p&gt;Địa điểm: Sân trường&lt;/p&gt;
+    &lt;p&gt;Số lượng thành viên: 30&lt;/p&gt;
+    &lt;p&gt;Thành tích: Giải Nhì cấp trường&lt;/p&gt;
+    &lt;p&gt;Phí tham gia: 100.000 đồng/tháng&lt;/p&gt;
+    &lt;p&gt;Liên hệ: 0123456789&lt;/p&gt;
+
+    &lt;h2 id="club2"&gt;Câu lạc bộ Cầu lông&lt;/h2&gt;
+    &lt;p&gt;Địa điểm: Nhà đa năng&lt;/p&gt;
+    &lt;p&gt;Số lượng thành viên: 20&lt;/p&gt;
+    &lt;p&gt;Thành tích: Giải Ba cấp trường&lt;/p&gt;
+    &lt;p&gt;Phí tham gia: 80.000 đồng/tháng&lt;/p&gt;
+    &lt;p&gt;Liên hệ: 0987654321&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </details>
+</div>
+
+
+<!-- BÀI 11 -->
+<div class="document">
+    <h3>Bài 11: Chèn hình ảnh và khung nội tuyến vào trang web</h3>
+
+    <details>
+        <summary>Luyện tập 1</summary>
+        <p><strong>Yêu cầu:</strong> Một hình ảnh có kích thước gốc 720 × 450 pixel. Khi chèn vào trang web với chiều rộng 600 pixel, hãy tính chiều cao hiển thị của ảnh.</p>
+
+        <p><strong>Lời giải:</strong></p>
+        <p>Chiều cao hiển thị của ảnh là:</p>
+        <p>600 × 450 / 720 = 375 pixel.</p>
+        <p>Vậy kích thước ảnh sau khi hiển thị là <strong>600 × 375 pixel</strong>.</p>
+
+        <pre><code>&lt;img src="hinh-anh.jpg" width="600"&gt;</code></pre>
+    </details>
+
+    <details>
+        <summary>Luyện tập 2</summary>
+        <p><strong>Yêu cầu:</strong> Tạo trang giới thiệu bản thân có 3 hình ảnh và 3 liên kết Facebook.</p>
+
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="vi"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Giới thiệu bản thân&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Giới thiệu bản thân&lt;/h1&gt;
+    &lt;p&gt;Xin chào! Mình là Mai.&lt;/p&gt;
+
+    &lt;h2&gt;Hình ảnh&lt;/h2&gt;
+    &lt;img src="anh1.jpg" width="200"&gt;
+    &lt;img src="anh2.jpg" width="200"&gt;
+    &lt;img src="anh3.jpg" width="200"&gt;
+
+    &lt;h2&gt;Bạn bè của mình&lt;/h2&gt;
+    &lt;a href="https://www.facebook.com/friend1"&gt;Bạn 1&lt;/a&gt;&lt;br&gt;
+    &lt;a href="https://www.facebook.com/friend2"&gt;Bạn 2&lt;/a&gt;&lt;br&gt;
+    &lt;a href="https://www.facebook.com/friend3"&gt;Bạn 3&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </details>
+
+    <details>
+        <summary>Vận dụng</summary>
+        <p><strong>Yêu cầu:</strong> Tạo trang web giới thiệu một bài hát yêu thích bằng cách chèn video YouTube vào trang web thông qua thẻ iframe.</p>
+
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="vi"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Bài hát yêu thích&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;BÀI HÁT YÊU THÍCH&lt;/h1&gt;
+
+    &lt;p&gt;Đây là bài hát mà mình yêu thích.&lt;/p&gt;
+
+    &lt;iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/video_id"
+        title="YouTube video player"
+        frameborder="0"
+        allowfullscreen&gt;
+    &lt;/iframe&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <p><em>Lưu ý: Thay <code>video_id</code> bằng mã video YouTube mà bạn muốn chèn.</em></p>
+    </details>
+</div>
+
+    </div>
+</section>
+</main>
+
+<footer>
+    <p>Nhóm 3 Tin học | Cùng học tập và tiến bộ</p>
+</footer>
+
+</body>
+</html>
